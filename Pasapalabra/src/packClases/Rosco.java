@@ -31,7 +31,7 @@ public class Rosco {
 	{	
 		int num;
 		
-		for(char c='A';c<='Z';c++)
+		for(char c='A';c<='J';c++)
 		{
 			for (Entry<Character, List<Definicion>> e: CatalogoDefiniciones.getCatalogoDefiniciones().buscarPorLetra(c).entrySet()) 
 			{
@@ -39,9 +39,28 @@ public class Rosco {
 				listaCasillas.add(new Casilla(e.getKey(),e.getValue().get(num)));
 			}
 		}
+		
+		for(char c='L';c<='V';c++)
+		{
+			for (Entry<Character, List<Definicion>> e: CatalogoDefiniciones.getCatalogoDefiniciones().buscarPorLetra(c).entrySet()) 
+			{
+				num=(int)(Math.random()*e.getValue().size());
+				listaCasillas.add(new Casilla(e.getKey(),e.getValue().get(num)));
+			}
+		}
+		
+		for(char c='X';c<='Z';c++)
+		{
+			for (Entry<Character, List<Definicion>> e: CatalogoDefiniciones.getCatalogoDefiniciones().buscarPorLetra(c).entrySet()) 
+			{
+				num=(int)(Math.random()*e.getValue().size());
+				listaCasillas.add(new Casilla(e.getKey(),e.getValue().get(num)));
+			}
+		}
+		Iterator<Casilla> it = getIterador();
+		it.next().Activar(true);
 	}
 	
-	//BUSCAR CASILLA ACTIVA
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Iterator<Casilla> obtenerCasillaActiva(){ 
 		Iterator it = Filter.filter(listaCasillas, new obtener()).iterator(); 	 
@@ -53,40 +72,38 @@ public class Rosco {
 		public Boolean fn(Casilla pCas){ 
 			 return (pCas.estaActiva()); 
 	    } 
-	}
-	//----------------------------------------------
-	
-	
-	private boolean comprobarRespuesta(String pRespuesta) {
-	
-		return (obtenerCasillaActiva().next().comprobarRespuesta(pRespuesta));
-			
+	}	
+
+	public boolean comprobarRespuesta(String pRespuesta) {
+
+		return (obtenerCasillaActiva().next().comprobarRespuesta(pRespuesta));	
 	}
 	
-	private Casilla pasapalabra() {
+	public void pasapalabra() {
 
 		Iterator<Casilla> it = getIterador();
-		boolean encontrado=false;
-		
+		boolean encontrado=false;	
 		Casilla unaCasilla=obtenerCasillaActiva().next();
 		obtenerCasillaActiva().next().Activar(false);
-	
-		while()
+		
+		while(!encontrado && finJuego().hasNext())
 		{
+			if(!it.hasNext())
+			{
+				it=getIterador();
+				System.out.println("Entro");
+			}
+			
 			unaCasilla=it.next();
+			
 			if(unaCasilla.comprobarEstado()==Estado.PENDIENTE)
 			{
 				encontrado=true;
 				unaCasilla.Activar(true);
+				System.out.println(unaCasilla.getLetra());
 			}
-			
-			if(it.hasNext())
 		}
-		
-		return unaCasilla;
 	}
-	
-	
 	
 	@SuppressWarnings("unchecked")
 	public Iterator<Casilla> finJuego(){ 
@@ -102,7 +119,4 @@ public class Rosco {
 			 return (unEstado.equals(Estado.PENDIENTE)); 
 		 }
 	}
-	
-	
-	
 }

@@ -35,7 +35,7 @@ public class Definicion {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Iterator<String> comprobarRespuesta(String pRespuesta){ 
+	public Iterator<Definicion> comprobarRespuesta(String pRespuesta){ 
 		 @SuppressWarnings("rawtypes")
 		Iterator it = Filter.filter(listaRespuestas, new comprobar(pRespuesta)).iterator(); 	 
 		return it; 

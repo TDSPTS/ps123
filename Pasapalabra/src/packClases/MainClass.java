@@ -7,7 +7,39 @@ public class MainClass {
 		Rosco rosco=Rosco.getRosco();
 		catalogo.loadData();
 		rosco.cargarCasillas();
-	//	System.out.println(catalogo.toString());
+		rosco.comprobarRespuesta("Hola");
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		rosco.pasapalabra();
+		
+
+		
+		
+		
+
+		
+		//System.out.println(catalogo.toString());
 		//System.out.println(catalogo.buscarPorLetra('A').toString());
 		
 	}

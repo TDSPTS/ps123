@@ -34,7 +34,7 @@ public class Casilla {
 	}
 	
 	public boolean comprobarRespuesta(String pRespuesta){
-		if(definicion.comprobarRespuesta(pRespuesta)==null)
+		if(definicion.comprobarRespuesta(pRespuesta).hasNext())
 		{
 			setEstado(false);
 			return false;
