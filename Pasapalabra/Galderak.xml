@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListaDefiniciones>
+	<Definicion>
+		<Letra>A</Letra>
+		<Enunciado>Pregunta1</Enunciado>
+		<Respuestas>
+		<Respuesta>kk</Respuesta>
+		</Respuestas>
+	</Definicion>
+	<Definicion>
+		<Letra>A</Letra>
+		<Enunciado>Pregunta2</Enunciado>
+		<Respuestas>
+		<Respuesta>kk1</Respuesta>
+		<Respuesta>kk2</Respuesta>
+		</Respuestas>
+	</Definicion>
+	<Definicion>
+		<Letra>B</Letra>
+		<Enunciado>Pregunta1</Enunciado>
+		<Respuestas>
+		<Respuesta>kk</Respuesta>
+		</Respuestas>
+	</Definicion>
+</ListaDefiniciones>
