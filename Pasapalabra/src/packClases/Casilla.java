@@ -14,7 +14,6 @@ public class Casilla {
 		this.definicion=pDefinicion;
 		this.estado=Estado.PENDIENTE;
 		this.activa=false;
-		// Prueba para ver si funciona el commit
 	}
 	
 	public char getLetra(){
