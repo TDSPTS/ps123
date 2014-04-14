@@ -7,6 +7,7 @@ import java.util.List;
 import net.sf.jga.algorithms.Filter;
 import net.sf.jga.fn.UnaryFunctor;
 
+
 public class Definicion {
 	private String enunciado;
 	private List<String> listaRespuestas;

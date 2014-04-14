@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import packClases.Estados.Estado;
+import packClases.Ranking.comprobar;
 import net.sf.jga.algorithms.Filter;
 import net.sf.jga.fn.UnaryFunctor;
 
@@ -57,21 +58,20 @@ public class Rosco {
 	
 	
 	private boolean comprobarRespuesta(String pRespuesta) {
-		boolean acertada;
-		
-		acertada=obtenerCasillaActiva().next().comprobarRespuesta(pRespuesta);
-		obtenerCasillaActiva().next().Activar(false);
 	
-		return acertada;		
+		return (obtenerCasillaActiva().next().comprobarRespuesta(pRespuesta));
+			
 	}
 	
-	private void pasapalabra() {
+	private Casilla pasapalabra() {
 
 		Iterator<Casilla> it = getIterador();
 		boolean encontrado=false;
+		
 		Casilla unaCasilla=obtenerCasillaActiva().next();
+		obtenerCasillaActiva().next().Activar(false);
 	
-		while(!encontrado && it.hasNext())
+		while()
 		{
 			unaCasilla=it.next();
 			if(unaCasilla.comprobarEstado()==Estado.PENDIENTE)
@@ -80,7 +80,27 @@ public class Rosco {
 				unaCasilla.Activar(true);
 			}
 			
+			if(it.hasNext())
 		}
+		
+		return unaCasilla;
+	}
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	public Iterator<Casilla> finJuego(){ 
+		@SuppressWarnings("rawtypes")
+		Iterator it = Filter.filter(listaCasillas, new comprobar()).iterator(); 	 
+		return it; 
+	}
+	
+	@SuppressWarnings("serial")
+	class comprobar extends UnaryFunctor<Casilla, Boolean>{ 
+		 public Boolean fn(Casilla pCas){  
+			 Estado unEstado=pCas.comprobarEstado();
+			 return (unEstado.equals(Estado.PENDIENTE)); 
+		 }
 	}
 	
 	

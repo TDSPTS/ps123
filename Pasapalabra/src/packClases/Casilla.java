@@ -35,9 +35,15 @@ public class Casilla {
 	
 	public boolean comprobarRespuesta(String pRespuesta){
 		if(definicion.comprobarRespuesta(pRespuesta)==null)
+		{
+			setEstado(false);
 			return false;
+		}
 		else
+		{
+			setEstado(true);
 			return true;
+		}
 	}
 	
 	public boolean estaActiva(){
